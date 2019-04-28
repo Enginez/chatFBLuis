@@ -5,20 +5,21 @@
     <link href="http://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="style.css" >
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-    <title>Simple Chat App</title>
+    <title>FB Luis chat</title>
   </head>
 
   <body>
     <header>
-      <h1>Super Chat</h1>
+      <h1>FB Luis chat</h1>
+      <section>
+        <div id="change_username">
+          <input id="username" type="text" />
+          <button id="send_username" type="button">Change username</button>
+        </div>
+      </section>
     </header>
 
-    <section>
-      <div id="change_username">
-	<input id="username" type="text" />
-	<button id="send_username" type="button">Change username</button>
-      </div>
-    </section>
+
 
     <section id="chatroom">
       <section id="feedback"></section>

@@ -1,5 +1,5 @@
 {
-  "name": "simplechatapp",
+  "name": "chat_fb_lois",
   "version": "1.0.0",
   "description": "Simple chat app built with node.js and socket.io",
   "main": "app.js",
@@ -9,14 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ngrt/simpleChatApp.git"
+    "url": "git+https://github.com/Enginez/chatFBLuis.git"
   },
-  "author": "Noufel Gouirhate",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ngrt/simpleChatApp/issues"
-  },
-  "homepage": "https://github.com/ngrt/simpleChatApp#readme",
+  "homepage": "https://github.com/ngrt/chatFBLuis#readme",
   "dependencies": {
     "ejs": "^2.5.7",
     "express": "^4.16.2",
