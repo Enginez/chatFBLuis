@@ -37,22 +37,24 @@ io.on('connection', (socket) => {
 
     //listen on new_message
     socket.on('new_message', (data) => {
-        //broadcast the new message
-        io.sockets.emit('new_message', {message : data.message, username : socket.username});
-        // Pass an utterance to the sample LUIS app
-        getLuisIntent(data.message);
-
-    })
+        if(data.message.trim()!="")
+        {
+            //broadcast the new message
+            io.sockets.emit('new_message', {message : data.message, username : socket.username});
+            // Pass an utterance to the sample LUIS app
+            getLuisIntent(data.message);
+        }
+    });
 
     //listen on typing
     socket.on('typing', (data) => {
     	socket.broadcast.emit('typing', {username : socket.username})
-    })
-})
+    });
+});
 
 let request = require('request');
 let querystring = require('querystring');
-let customEnv = require('custom-env').env();
+require('custom-env').env();
 
 // Analyze text
 //
@@ -100,7 +102,7 @@ function getLuisIntent(utterance) {
                 console.log(`Top Intent: ${data.topScoringIntent.intent}`);
                 console.log(JSON.stringify(data.intents[0].intent));
 
-                let louisSay = 'You reached the '+JSON.stringify(data.intents[0].intent+'. You said ' + utterance);
+                let louisSay = 'You reached the '+JSON.stringify(data.intents[0].intent+'. You said \'' + utterance+'\'');
                 io.sockets.emit('new_message', {message : louisSay, username : 'Bot'});
 
             }
